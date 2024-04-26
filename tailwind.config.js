@@ -5,7 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    fontFamily: {
+      'title': "Rancho, cursive",
+    },
+    extend: {
+      colors: {
+        'primary': '#4ad66d',
+      },
+    },
   },
   plugins: [require("daisyui")], 
 }
