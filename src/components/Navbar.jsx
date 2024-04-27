@@ -21,6 +21,7 @@ const Navbar = () => {
   return (
     <div>
       <div className="artsContainer py-5 relative">
+
         <div className="navbar bg-base-100">
           <div className="navbar-start">
             <div className="dropdown">
@@ -97,7 +98,7 @@ const Navbar = () => {
 
             <Link
               to="/"
-              className="text-primary text-base font-title font-bold md:text-4xl"
+              className="text-primary text-lg min-[360px]:text-2xl min-[390px]:text-3xl font-title font-bold md:text-5xl"
             >
               SakuArtisans
             </Link>
