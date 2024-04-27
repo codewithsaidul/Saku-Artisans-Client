@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import bgImage from '../assets/Moon.svg'
 import { FaEnvelope, FaFacebook, FaGithub, FaInstagram, FaPhone, FaTwitter } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
+import { Typewriter } from 'react-simple-typewriter';
 
 const Footer = () => {
   return (
@@ -33,7 +34,9 @@ const Footer = () => {
           </aside>
 
           <nav className="flex flex-col items-center gap-5">
-            <h6 className="text-white text-6xl font-title font-bold">Quick Links</h6>
+            <h6 className="text-white text-6xl font-title font-bold">
+              Quick Links
+            </h6>
             <Link
               to="/"
               className="text-gray-400 font-semibold text-base hover:text-primary"
@@ -64,7 +67,9 @@ const Footer = () => {
           </nav>
 
           <nav className="flex flex-col gap-5 items-center">
-            <h6 className="text-white text-6xl font-title font-bold">Social Media</h6>
+            <h6 className="text-white text-6xl font-title font-bold">
+              Social Media
+            </h6>
 
             <div className="flex gap-5">
               <a
@@ -101,9 +106,18 @@ const Footer = () => {
 
         <div>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-500 font-normal text-center mt-10 pt-10">
-            &copy; 2024 SakuArtisans by{" "}
-            <span className="font-title text-primary text-xl font-semibold">
-              CodeWithSaidul
+            &copy; 2024 SakuArtisans by 
+            <span className="font-title text-primary text-xl font-semibold ml-3">
+              {/* Style will be inherited from the parent element */}
+              <Typewriter
+                words={["CodeWithSaidul", "Saidul Islam Rana"]}
+                loop={true}
+                cursor
+                cursorStyle="|"
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
             </span>
           </p>
         </div>
