@@ -7,6 +7,7 @@ import { Typewriter } from "react-simple-typewriter";
 const Home = () => {
   const craftItems = useLoaderData();
 
+
   
   return (
     <div className="artsContainer mt-10">
@@ -39,6 +40,13 @@ const Home = () => {
             <Link to="/allCraftsItem" className="py-3 px-7 bg-transparent border border-primary text-2xl font-medium hover:text-white hover:bg-primary hover:border duration-1000 hover:duration-1000 rounded-full">See More</Link>
           </div>
         </div>
+
+
+        {/* <div>
+          <div>
+
+          </div>
+        </div> */}
       </div>
     </div>
   );

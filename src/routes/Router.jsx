@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import AllCraftItems from "../pages/AllCraftItems";
 import MyCraftLists from "../pages/MyCraftLists";
 import CraftDetails from "../pages/CraftDetails";
+import Login from "../pages/Login";
 
 
 
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
         element: <MyCraftLists />,
         loader: () => fetch(`/craftItem.json`),
       },
+      {
+        path: '/login',
+        element: <Login/>
+      }
     ],
   },
 ]);
