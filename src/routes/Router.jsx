@@ -7,6 +7,7 @@ import CraftDetails from "../pages/CraftDetails";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import NotFound from "../pages/NotFound";
+import AddCraftItem from "../pages/AddCraftItem";
 
 
 
@@ -14,7 +15,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    errorElement: <NotFound/>,
+    errorElement: <NotFound />,
     children: [
       {
         path: "/",
@@ -37,13 +38,17 @@ export const router = createBrowserRouter([
         loader: () => fetch(`/craftItem.json`),
       },
       {
-        path: '/login',
-        element: <Login/>
+        path: "/addCraftsItem",
+        element: <AddCraftItem />,
       },
       {
-        path: '/register',
-        element: <Register/>
-      }
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
     ],
   },
 ]);
