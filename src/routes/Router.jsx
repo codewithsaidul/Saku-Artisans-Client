@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../root/Root";
 import Home from "../pages/Home";
+import AllCraftItems from "../pages/AllCraftItems";
 
 
 
@@ -15,9 +16,14 @@ export const router = createBrowserRouter([
         loader: () => fetch("/craftItem.json"),
       },
       {
-        path: "/viewDetails/:id",
+        path: "/allCraftsItem",
         element: <Home />,
-        loader: ({params}) => fetch(`/craftItem.json/${params.id}`),
+        loader: () => fetch("/craftItem.json"),
+      },
+      {
+        path: "/allCraftsItem/:id",
+        element: <AllCraftItems />,
+        loader: () => fetch(`/craftItem.json`),
       },
     ],
   },

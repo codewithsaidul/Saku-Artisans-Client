@@ -7,7 +7,7 @@ const CraftCard = ({ craftItem }) => {
 
   return (
     <div className="">
-      <div className="flex flex-col h-[500px] bg-base-100 shadow-xl border-2 rounded-3xl border-transparent hover:border-primary duration-1000 hover:scale-105">
+      <div className="flex flex-col h-auto bg-base-100 shadow-xl border-2 rounded-3xl border-transparent hover:border-primary duration-1000 hover:scale-105">
         <figure>
           <img className="w-full h-64 rounded-t-3xl" src={image} alt="craft" />
         </figure>
@@ -24,7 +24,7 @@ const CraftCard = ({ craftItem }) => {
               </span>
             </p>
             <p className="text-lg text-gray-500 font-normal">
-              Price :{" "}
+              Rating :{" "}
               <span className="text-primary font-title font-semibold">
                 {rating}
               </span>
@@ -38,8 +38,8 @@ const CraftCard = ({ craftItem }) => {
             </span>
           </h4>
 
-          <div className="justify-end">
-            <Link to={`/viewDetails/${id}`}>
+          <div className="mt-auto">
+            <Link to={`/allCraftsItem/${id}`}>
               <button className="bg-primary w-full p-2 border border-primary hover:text-black hover:bg-transparent duration-1000 rounded-full text-white text-xl font-medium">
                 View Details
               </button>

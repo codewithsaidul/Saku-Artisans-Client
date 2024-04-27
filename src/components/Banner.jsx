@@ -7,7 +7,7 @@ import 'swiper/css';
 import "swiper/css/navigation";
 
 import { Link } from "react-router-dom";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 
 const Banner = () => {
   return (
@@ -16,8 +16,10 @@ const Banner = () => {
         slidesPerView={1}
         spaceBetween={50}
         loop={true}
-        
-        
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
         pagination={{
           clickable: true,
         }}
@@ -35,8 +37,7 @@ const Banner = () => {
             spaceBetween: 50,
           },
         }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
+        modules={[Autoplay, Pagination]}
         className="mySwiper"
       >
         {/* Banner Slider One */}
@@ -52,9 +53,11 @@ const Banner = () => {
             </figure>
 
             <div className="absolute top-16 md:top-28 left-0 right-0 text-center md:p-10">
-              <h1 className="text-3xl md:text-6xl font-bold text-white mb-5 w-full md:w-[800px] mx-auto">
-                <span className="text-primary">Handcrafted</span> Eco-Friendly
-                Creations for Sustainable Living
+              <h1 className="text-2xl md:text-6xl font-bold text-white mb-5 w-full md:w-[800px] mx-auto">
+                <span className="text-primary font-title text-4xl md:text-8xl">
+                  Handcrafted
+                </span>{" "}
+                Eco-Friendly Creations for Sustainable Living
               </h1>
 
               <Link to="/allCraftsItem">
@@ -79,10 +82,12 @@ const Banner = () => {
             </figure>
 
             <div className="absolute top-16 md:top-28 left-0 right-0 text-center md:p-10">
-              <h1 className="text-3xl md:text-6xl font-bold text-white mb-5 w-full md:w-[800px] mx-auto">
+              <h1 className="text-2xl md:text-6xl font-bold text-white mb-5 w-full md:w-[800px] mx-auto">
                 Discover Timeless Beauty in{" "}
-                <span className="text-primary">Jute & Wood</span> Artisanal
-                Crafts
+                <span className="text-primary font-title text-4xl md:text-8xl">
+                  Jute & Wood
+                </span>{" "}
+                Artisanal Crafts
               </h1>
 
               <Link to="/allCraftsItem">
@@ -106,11 +111,13 @@ const Banner = () => {
               <div className="hero-overlay bg-opacity-70 rounded-lg"></div>
             </figure>
 
-            <div className="absolute top-16 md:top-28 left-0 right-0 text-center md:p-10">
-              <h1 className="text-3xl md:text-6xl font-bold text-white mb-5 w-full md:w-[800px] mx-auto">
+            <div className="absolute top-16 md:top-28 left-0 right-0 text-center px-3 md:p-10">
+              <h1 className="text-2xl md:text-6xl font-bold text-white mb-5 w-full md:w-[800px] mx-auto">
                 Explore Rustic{" "}
-                <span className="text-primary">Sophistication</span> with Our
-                Unique Collection
+                <span className="text-primary font-title text-4xl md:text-8xl">
+                  Sophistication
+                </span>{" "}
+                with Our Unique Collection
               </h1>
 
               <Link to="/allCraftsItem">
