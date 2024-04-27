@@ -1,15 +1,15 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const MyCraftList = ({ craft }) => {
 
+
+const MyCraftList = ({ craft }) => {
   
   const { item_name, image, price, rating, customization, stockStatus } = craft;
 
-
   return (
     <div>
-      {" "}
+
       <div className="flex flex-col h-auto bg-base-100 shadow-xl border-2 rounded-3xl border-transparent hover:border-primary duration-1000 hover:scale-105">
         <figure>
           <img className="w-full h-64 rounded-t-3xl" src={image} alt="craft" />
