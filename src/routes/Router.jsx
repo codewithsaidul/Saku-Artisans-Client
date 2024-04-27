@@ -3,6 +3,7 @@ import Root from "../root/Root";
 import Home from "../pages/Home";
 import AllCraftItems from "../pages/AllCraftItems";
 import MyCraftLists from "../pages/MyCraftLists";
+import CraftDetails from "../pages/CraftDetails";
 
 
 
@@ -22,9 +23,9 @@ export const router = createBrowserRouter([
         loader: () => fetch("/craftItem.json"),
       },
       {
-        path: "/allCraftsItem/:subcategory_Name",
-        element: <AllCraftItems />,
-        loader: () => fetch(`/craftItem.json`),
+        path: "/allCraftsItem/:id",
+        element: <CraftDetails />,
+        loader: () => fetch("/craftItem.json"),
       },
       {
         path: "/myCraftsList",
