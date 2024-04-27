@@ -1,9 +1,11 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const MyCraftList = ({ craftItem }) => {
+const MyCraftList = ({ craft }) => {
 
-    const { item_name, image, price, rating, customization, stockStatus } = craftItem;
+  
+  const { item_name, image, price, rating, customization, stockStatus } = craft;
+
 
   return (
     <div>
@@ -72,7 +74,7 @@ const MyCraftList = ({ craftItem }) => {
 
 
 MyCraftList.propTypes = {
-  craftItem: PropTypes.object,
+  craft: PropTypes.object,
 };
 
 
