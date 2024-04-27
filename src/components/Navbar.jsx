@@ -53,7 +53,7 @@ const Navbar = () => {
                   to="/"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-primary border-b font-semibold  border-primary text-lg"
+                      ? "text-primary font-title border-b font-semibold  border-primary text-2xl"
                       : "text-gray-400 font-normal text-base"
                   }
                 >
@@ -64,7 +64,7 @@ const Navbar = () => {
                   to="/allCraftsItem"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-primary border-b font-semibold  border-primary text-lg"
+                      ? "text-primary font-title border-b font-semibold  border-primary text-2xl"
                       : "text-gray-400 font-normal text-base"
                   }
                 >
@@ -75,7 +75,7 @@ const Navbar = () => {
                   to="/addCraftsItem"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-primary border-b font-semibold  border-primary text-lg"
+                      ? "text-primary font-title border-b font-semibold  border-primary text-2xl"
                       : "text-gray-400 font-normal text-base"
                   }
                 >
@@ -86,7 +86,7 @@ const Navbar = () => {
                   to="/myCraftsList"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-primary border-b font-semibold  border-primary text-lg"
+                      ? "text-primary font-title border-b font-semibold  border-primary text-2xl"
                       : "text-gray-400 font-normal text-base"
                   }
                 >
@@ -97,7 +97,7 @@ const Navbar = () => {
 
             <Link
               to="/"
-              className="text-primary text-base font-bold md:text-3xl"
+              className="text-primary text-base font-title font-bold md:text-4xl"
             >
               SakuArtisans
             </Link>
@@ -110,7 +110,7 @@ const Navbar = () => {
                 to="/"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-primary border-b font-semibold  border-primary text-lg"
+                    ? "text-primary font-title border-b font-semibold  border-primary text-2xl"
                     : "text-gray-400 font-normal text-base"
                 }
               >
@@ -121,7 +121,7 @@ const Navbar = () => {
                 to="/allCraftsItem"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-primary border-b font-semibold  border-primary text-lg"
+                    ? "text-primary font-title border-b font-semibold  border-primary text-2xl"
                     : "text-gray-400 font-normal text-base"
                 }
               >
@@ -132,7 +132,7 @@ const Navbar = () => {
                 to="/addCraftsItem"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-primary border-b font-semibold  border-primary text-lg"
+                    ? "text-primary font-title border-b font-semibold  border-primary text-2xl"
                     : "text-gray-400 font-normal text-base"
                 }
               >
@@ -143,7 +143,7 @@ const Navbar = () => {
                 to="/myCraftsList"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-primary border-b font-semibold  border-primary text-lg"
+                    ? "text-primary font-title border-b font-semibold  border-primary text-2xl"
                     : "text-gray-400 font-normal text-base"
                 }
               >
@@ -174,7 +174,7 @@ const Navbar = () => {
                 <input
                   type="checkbox"
                   className="theme-controller"
-                  checked={theme === 'dark'}
+                  checked={theme === "dark"}
                 />
 
                 {/* sun icon */}
