@@ -129,7 +129,7 @@ const Login = () => {
               >
                 <h2 className="text-xl font-normal text-gray-300 mt-7">
                   Don&apos;t Have An Account?{" "}
-                  <Link to="/register" className="text-white font-extrabold">
+                  <Link to="/register" className="text-primary ml-2 font-extrabold">
                     Register
                   </Link>{" "}
                 </h2>
