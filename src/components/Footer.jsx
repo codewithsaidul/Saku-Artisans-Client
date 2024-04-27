@@ -8,7 +8,7 @@ const Footer = () => {
     <div>
       <footer
         style={{ backgroundImage: `url(${bgImage})` }}
-        className="py-32 px-8 md:px-12 lg:px-20 text-gray-400 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center lg:items-start gap-10"
+        className="py-32 px-8 md:px-12 lg:px-20 text-gray-400 mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center lg:items-start gap-10"
       >
         <aside className="flex flex-col gap-5">
           <Link to="/" className="text-primary text-4xl font-bold">

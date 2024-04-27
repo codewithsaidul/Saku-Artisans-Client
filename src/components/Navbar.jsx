@@ -168,7 +168,7 @@ const Navbar = () => {
             </Link>
 
             {/* theme controler */}
-            <div className="fixed top-24 right-0 bg-white  shadow-custom py-2 px-7 rounded flex justify-center items-center">
+            <div className="fixed top-24 right-0 bg-white z-50  shadow-custom py-2 px-7 rounded flex justify-center items-center">
               <label onChange={handleTheme} className="swap swap-rotate">
                 {/* this hidden checkbox controls the state */}
                 <input
