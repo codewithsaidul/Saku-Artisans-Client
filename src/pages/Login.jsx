@@ -14,14 +14,14 @@ const Login = () => {
           style={{ backgroundImage: `url(${BG})` }}
         >
           <div
-            className="shadow-custom my-10 rounded-xl w-full md:w-[50%]"
+            className="shadow-custom my-10 px-5 rounded-xl w-full md:w-[50%]"
           >
             <form
             //   onSubmit={handleSubmit(onSubmit)}
               className="py-10 px-5 md:p-20"
             >
               <h2
-                className="text-3xl font-bold text-center text-white mb-7"
+                className="text-3xl font-title font-bold text-center text-white mb-7"
               >
                 Login In Your Account
               </h2>
@@ -129,7 +129,7 @@ const Login = () => {
               >
                 <h2 className="text-xl font-normal text-gray-300 mt-7">
                   Don&apos;t Have An Account?{" "}
-                  <Link to="/register" className="text-primary ml-2 font-extrabold">
+                  <Link to="/register" className="text-primary font-title ml-2 font-extrabold">
                     Register
                   </Link>{" "}
                 </h2>

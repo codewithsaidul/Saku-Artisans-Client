@@ -12,7 +12,7 @@ const Register = () => {
         <div>
 
           <div
-            className="w-full mt-5 flex justify-center items-center"
+            className="w-full mt-5 flex justify-center items-center px-5"
             style={{ backgroundImage: `url(${BG})` }}
           >
             <div
@@ -23,9 +23,9 @@ const Register = () => {
             >
               <form
                 // onSubmit={handleSubmit(onSubmit)}
-                className="py-10 px-16 md:p-20 md:py-10 mb-10 "
+                className="py-10 px-5 md:p-20 md:py-10 mb-10 "
               >
-                <h2 className="text-3xl font-bold text-center text-white mb-7">
+                <h2 className="text-3xl font-title font-bold text-center text-white mb-7">
                   Register
                 </h2>
 
@@ -161,7 +161,7 @@ const Register = () => {
                 <div>
                   <h2 className="text-xl font-normal text-gray-300 mt-7">
                     Already Have An Account?
-                    <Link to="/login" className="text-primary ml-2 font-extrabold">
+                    <Link to="/login" className="text-primary font-title ml-2 font-extrabold">
                       Login
                     </Link>
                   </h2>

@@ -6,6 +6,7 @@ import MyCraftLists from "../pages/MyCraftLists";
 import CraftDetails from "../pages/CraftDetails";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import NotFound from "../pages/NotFound";
 
 
 
@@ -13,6 +14,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <NotFound/>,
     children: [
       {
         path: "/",
