@@ -10,12 +10,12 @@ const Footer = () => {
         style={{ backgroundImage: `url(${bgImage})` }}
         className="py-32 px-8 md:px-12 lg:px-20 text-gray-400 mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center lg:items-start gap-10"
       >
-        <aside className="flex flex-col gap-5">
+        <aside className="flex flex-col items-center text-center gap-5">
           <Link to="/" className="text-primary text-4xl font-bold">
             SakuArtisans
           </Link>
 
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col items-center gap-3">
             <p className="flex items-center gap-3">
               <FaPhone size={20} />
               +880 1345440000
