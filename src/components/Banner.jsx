@@ -17,6 +17,7 @@ const Banner = () => {
         spaceBetween={50}
         loop={true}
         
+        
         pagination={{
           clickable: true,
         }}

@@ -7,12 +7,18 @@ import Home from "../pages/Home";
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root/>,
+    element: <Root />,
     children: [
       {
         path: "/",
-        element: <Home/>
-      }
-    ]
+        element: <Home />,
+        loader: () => fetch("/craftItem.json"),
+      },
+      {
+        path: "/viewDetails/:id",
+        element: <Home />,
+        loader: ({params}) => fetch(`/craftItem.json/${params.id}`),
+      },
+    ],
   },
 ]);
