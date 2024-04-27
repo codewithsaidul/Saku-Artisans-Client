@@ -18,7 +18,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/allCraftsItem",
-        element: <Home />,
+        element: <AllCraftItems />,
         loader: () => fetch("/craftItem.json"),
       },
       {
