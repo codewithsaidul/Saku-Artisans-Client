@@ -8,6 +8,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import NotFound from "../pages/NotFound";
 import AddCraftItem from "../pages/AddCraftItem";
+import PrivateRoute from "../privateRoute/PrivateRoute";
 
 
 
@@ -29,17 +30,29 @@ export const router = createBrowserRouter([
       },
       {
         path: "/allCraftsItem/:id",
-        element: <CraftDetails />,
-        loader: () => fetch("/craftItem.json"),
+        element: (
+          <PrivateRoute>
+            <CraftDetails />
+          </PrivateRoute>
+        ),
+        loader: () => fetch("/http://localhost:5000/allCraftItems"),
       },
       {
         path: "/myCraftsList",
-        element: <MyCraftLists />,
+        element: (
+          <PrivateRoute>
+            <MyCraftLists />
+          </PrivateRoute>
+        ),
         loader: () => fetch(`/craftItem.json`),
       },
       {
         path: "/addCraftsItem",
-        element: <AddCraftItem />,
+        element: (
+          <PrivateRoute>
+            <AddCraftItem />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
