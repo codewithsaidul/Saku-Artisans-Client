@@ -29,6 +29,14 @@
   .artsContainer {
     @apply max-w-[1920px] sm:px-5 md:px-[50px] lg:px-[60px] xl:px-[80px] 2xl:px-[120px] mx-auto
   }
+
+  .btn__log{
+    display: none;
+  }
+
+  .profile:hover .btn__log{
+    display: block;
+  }
 }
 
 

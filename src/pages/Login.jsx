@@ -25,6 +25,7 @@ const Login = () => {
         .then((result) => {
           setUser(result.user);
           naviGate("/");
+          
         })
         .catch(() => {
           Swal.fire({

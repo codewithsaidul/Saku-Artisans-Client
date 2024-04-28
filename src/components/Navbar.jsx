@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
+
+
+  const {user} = useAuth();
+
 
   const localTheme = localStorage.getItem("theme");
   const [theme, setTheme] = useState(localTheme || 'light');
@@ -21,7 +27,6 @@ const Navbar = () => {
   return (
     <div>
       <div className="artsContainer py-5 relative">
-
         <div className="navbar bg-base-100">
           <div className="navbar-start">
             <div className="dropdown">
@@ -155,18 +160,57 @@ const Navbar = () => {
 
           {/* Navbar End */}
           <div className="navbar-end">
-            <Link
-              to="/login"
-              className="py-2 px-2 md:py-3 md:px-5 bg-transparent border border-primary dark:text-rose-400 hover:text-white hover:bg-primary hover:border duration-700 hover:duration-700 text-lg rounded-lg"
-            >
-              Login
-            </Link>
-            <Link
-              to="/register"
-              className="py-2 px-2 md:py-3 md:px-5 bg-transparent border border-primary  dark:text-white hover:text-white hover:bg-primary hover:border duration-700 hover:duration-700 text-lg rounded-lg ml-2"
-            >
-              Register
-            </Link>
+            {user?.photoURL ? (
+              <div className="dropdown dropdown-end">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div
+                    className="w-10 rounded-full"
+                    data-tooltip-id="my-tooltip"
+                    data-tooltip-place="left"
+                    data-tooltip-content={user.displayName}
+                  >
+                    <img
+                      alt="Tailwind CSS Navbar component"
+                      src={user.photoURL}
+                    />
+                    <Tooltip id="my-tooltip" />
+                  </div>
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="flex flex-col gap-5 items-end justify-end dropdown-content mt-3 z-[100] p-2 shadow bg-base-100 rounded-box w-32"
+                >
+                  <li>
+                    <a>
+                      Profile
+                      
+                    </a>
+                  </li>
+                  <li>
+                    <a>Logout</a>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <div>
+                <Link
+                  to="/login"
+                  className="py-2 px-2 md:py-3 md:px-5 bg-transparent border border-primary dark:text-rose-400 hover:text-white hover:bg-primary hover:border duration-700 hover:duration-700 text-lg rounded-lg"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/register"
+                  className="py-2 px-2 md:py-3 md:px-5 bg-transparent border border-primary  dark:text-white hover:text-white hover:bg-primary hover:border duration-700 hover:duration-700 text-lg rounded-lg ml-2"
+                >
+                  Register
+                </Link>
+              </div>
+            )}
 
             {/* theme controler */}
             <div className="fixed top-24 right-0 bg-white z-50  shadow-custom py-2 px-7 rounded flex justify-center items-center">
