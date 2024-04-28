@@ -1,10 +1,41 @@
 import { CiMail } from "react-icons/ci";
 import { FaGithub, FaGoogle, FaLock } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BG from '../assets/Moon.svg'
+import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+import useAuth from "../hooks/useAuth";
 
 
 const Login = () => {
+
+  const naviGate = useNavigate()
+
+  const { register, handleSubmit, resetField } = useForm();
+
+  const {loginUser, setUser} = useAuth();
+
+    const onSubmit = (data) => {
+      const { Email, Password } = data;
+      // console.log(Email, Password)
+      resetField("Email");
+      resetField("Password");
+
+      loginUser(Email, Password)
+        .then((result) => {
+          setUser(result.user);
+          naviGate("/");
+        })
+        .catch(() => {
+          Swal.fire({
+            title: "Wrong!",
+            text: "Your Email or Password Are Wrong!",
+            icon: "error",
+            confirmButtonText: "Ok",
+          });
+        });
+    };
+
   return (
     <div>
       <div>
@@ -17,7 +48,7 @@ const Login = () => {
             className="shadow-custom my-10 px-5 rounded-xl w-full md:w-[50%]"
           >
             <form
-            //   onSubmit={handleSubmit(onSubmit)}
+              onSubmit={handleSubmit(onSubmit)}
               className="py-10 px-5 md:p-20"
             >
               <h2
@@ -46,7 +77,7 @@ const Login = () => {
                     <CiMail size={24} className="text-white" />
                     <input
                       type="email"
-                    //   {...register("Email")}
+                      {...register("Email")}
                       placeholder="Type Your Email"
                       className="w-full outline-none border-0 bg-transparent  pl-4 text-gray-200 "
                       required
@@ -72,7 +103,7 @@ const Login = () => {
                     <FaLock size={20} className="text-white" />
                     <input
                       type="password"
-                    //   {...register("Password")}
+                      {...register("Password")}
                       placeholder="Type Your Password"
                       className="w-full outline-none border-0 bg-transparent  pl-4 text-gray-200 "
                       required

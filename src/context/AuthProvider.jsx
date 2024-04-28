@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
 export const AuthContext = createContext(null);
@@ -18,6 +18,12 @@ const AuthProvider = ({ children }) => {
     const createNewUser = (email, password) => {
         setLoader(true)
         return createUserWithEmailAndPassword(Auth, email, password)
+    }
+
+    // Login a Existing User
+    const loginUser = (email, password) => {
+        setLoader(true);
+        return signInWithEmailAndPassword(Auth, email, password)
     }
 
 
@@ -40,7 +46,7 @@ const AuthProvider = ({ children }) => {
 
     
 
-  const authInfo = { user, createNewUser, loggedOutUser, loader, setUser };
+  const authInfo = { user, createNewUser, loggedOutUser, loginUser, loader, setUser };
 
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

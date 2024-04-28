@@ -20,7 +20,7 @@ const Register = () => {
      const {
        register,
        handleSubmit,
-      //  resetField,
+       resetField,
        // watch,
        formState: { errors },
      } = useForm();
@@ -34,10 +34,12 @@ const Register = () => {
         // const { Name, Photo, Email, Password } = data;
         const userInfo = { name, photo, email, password };
 
-        // resetField("Name");
-        // resetField("Photo");
-        // resetField("Email");
-        // resetField("Password");
+        resetField("name");
+        resetField("photo");
+        resetField("email");
+        resetField("password");
+
+
         // Create a New User
         createNewUser(email, password)
           .then((result) => {
