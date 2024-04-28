@@ -1,6 +1,6 @@
 
-import { CiMail } from 'react-icons/ci';
-import { FaImage, FaUser } from 'react-icons/fa';
+import { CiLock, CiMail, CiUnlock } from 'react-icons/ci';
+import { FaEye, FaEyeSlash, FaImage, FaUser } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { useForm } from "react-hook-form";
@@ -8,11 +8,14 @@ import BG from '../assets/Moon.svg'
 import useAuth from '../hooks/useAuth';
 import { updateProfile } from 'firebase/auth';
 import Swal from 'sweetalert2';
+import { useState } from 'react';
 
 const Register = () => {
 
 
   const naviGate = useNavigate();
+
+  const [showPassword, setShowPassword] = useState(false);
 
     const { user, createNewUser, loggedOutUser, setUser } = useAuth();
     
@@ -185,11 +188,11 @@ const Register = () => {
                     Password
                   </label>
                   <div className="w-full shadow-custom rounded-full flex items-center py-2 px-3">
-                    {/* {showPassword ? (
+                    {showPassword ? (
                       <CiUnlock size={24} className="text-white" />
                     ) : (
                       <CiLock size={24} className="text-white" />
-                    )} */}
+                    )}
                     <input
                       type={"password"}
                       {...register("Password", {
@@ -209,13 +212,13 @@ const Register = () => {
                       className="w-full outline-none border-0 bg-transparent  pl-4 text-gray-200 "
                     />
 
-                    {/* <span onClick={() => setShowPassword(!showPassword)}>
+                    <span onClick={() => setShowPassword(!showPassword)}>
                       {showPassword ? (
                         <FaEyeSlash size={24} className="text-white" />
                       ) : (
                         <FaEye size={24} className="text-white" />
                       )}
-                    </span> */}
+                    </span>
                   </div>
 
                   {errors.Password && (
