@@ -3,10 +3,17 @@ import { Link } from "react-router-dom";
 
 
 
-const MyCraftList = ({ craft }) => {
-  
-  const { itemeName, imageUrl, price, rating, customization, stockStatus } =
-    craft;
+
+const MyCraftList = ({ craft, handleDelete }) => {
+  const {
+    _id,
+    itemeName,
+    imageUrl,
+    price,
+    rating,
+    customization,
+    stockStatus,
+  } = craft;
 
   return (
     <div>
@@ -57,11 +64,12 @@ const MyCraftList = ({ craft }) => {
           </div>
 
           <div className="mt-auto flex justify-between">
-            <Link to={`/allCraftsItem`}>
-              <button className="bg-red-500 py-2 px-5 border border-red-500 hover:text-black hover:bg-transparent duration-1000 rounded-full text-white text-lg font-medium">
-                Delete
-              </button>
-            </Link>
+            <button
+              onClick={() => handleDelete(_id)}
+              className="bg-red-500 py-2 px-5 border border-red-500 hover:text-black hover:bg-transparent duration-1000 rounded-full text-white text-lg font-medium"
+            >
+              Delete
+            </button>
 
             <Link to={`/allCraftsItem`}>
               <button className="bg-primary py-2 px-5 border border-primary hover:text-black hover:bg-transparent duration-1000 rounded-full text-white text-lg font-medium">
@@ -79,6 +87,7 @@ const MyCraftList = ({ craft }) => {
 
 MyCraftList.propTypes = {
   craft: PropTypes.object,
+  handleDelete: PropTypes.func
 };
 
 

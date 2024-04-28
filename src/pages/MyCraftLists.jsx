@@ -6,9 +6,9 @@ import { useEffect, useState,  } from "react";
 import BGImg from "../assets/slide1.jpg";
 import useAuth from "../hooks/useAuth";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyCraftLists = () => {
-  // const craftItems = useLoaderData();
 
 
   const {user} = useAuth()
@@ -27,7 +27,36 @@ const MyCraftLists = () => {
   }, [user]);
 
 
-  console.log(crafts)
+   const handleDelete = (id) => {
+     Swal.fire({
+       title: "Are you sure?",
+       text: "You won't be able to revert this!",
+       icon: "warning",
+       showCancelButton: true,
+       confirmButtonColor: "#3085d6",
+       cancelButtonColor: "#d33",
+       confirmButtonText: "Yes, delete it!",
+     }).then((result) => {
+       if (result.isConfirmed) {
+         fetch(`http://localhost:5000/allCraftItems/${id}`, {
+           method: "DELETE",
+         })
+           .then((res) => res.json())
+           .then((data) => {
+             if (data.deletedCount > 0) {
+               Swal.fire({
+                 title: "Deleted!",
+                 text: "Arts & Crafts Item has been deleted.",
+                 icon: "success",
+               });
+               const remaning = crafts.filter((coffee) => coffee._id !== id);
+               setCraft(remaning);
+               setDisplayCraft(remaning);
+             }
+           });
+       }
+     });
+   };
 
   // filter method using customization
   const handleFilter = (fillter) => {
@@ -107,7 +136,7 @@ const MyCraftLists = () => {
         <div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5 md:px-0">
             {crafts.map((craft) => (
-              <MyCraftList key={craft._id} craft={craft} />
+              <MyCraftList key={craft._id} handleDelete={handleDelete} craft={craft} />
             ))}
           </div>
         </div>
