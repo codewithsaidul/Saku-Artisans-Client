@@ -6,7 +6,7 @@ import { Tooltip } from "react-tooltip";
 const Navbar = () => {
 
 
-  const {user} = useAuth();
+  const { user, loggedOutUser } = useAuth();
 
 
   const localTheme = localStorage.getItem("theme");
@@ -22,6 +22,10 @@ const Navbar = () => {
   const handleTheme = e => {
     const newTheme = e.target.checked ? 'dark' : 'light';
     setTheme(newTheme)
+  }
+
+  const handleLogOut = () => {
+    loggedOutUser();
   }
 
   return (
@@ -185,13 +189,10 @@ const Navbar = () => {
                   className="flex flex-col gap-5 items-end justify-end dropdown-content mt-3 z-[100] p-2 shadow bg-base-100 rounded-box w-32"
                 >
                   <li>
-                    <a>
-                      Profile
-                      
-                    </a>
+                    <a>Profile</a>
                   </li>
                   <li>
-                    <a>Logout</a>
+                    <button onClick={handleLogOut}>Logout</button>
                   </li>
                 </ul>
               </div>
