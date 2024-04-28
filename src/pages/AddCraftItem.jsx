@@ -1,6 +1,55 @@
+import Swal from "sweetalert2";
 import BG from "../assets/Moon.svg";
 
 const AddCraftItem = () => {
+  const handleAddItems = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const itemeName = form.item_name.value;
+    const subCategory = form.sub_category.value;
+    const price = form.price.value;
+    const customization = form.customization.value;
+    const rating = form.rating.value;
+    const processingTime = form.processing_time.value;
+    const imageUrl = form.img_url.value;
+    const stockStatus = form.stock_status.value;
+    const shortDescription = form.short_description.value;
+
+    form.reset();
+
+    const craftData = {
+      itemeName,
+      subCategory,
+      price,
+      rating,
+      customization,
+      processingTime,
+      stockStatus,
+      imageUrl,
+      shortDescription,
+    };
+
+    fetch("http://localhost:5000/allCraftItems", {
+      method: "POST",
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(craftData)
+    })
+    .then(res => res.json())
+    .then(data => {
+      if(data.insertedId) {
+        Swal.fire({
+          title: "Success!",
+          text: "Arts & Craft Items Added Successfully!",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
+      }
+    })
+  };
+
   return (
     <div>
       {" "}
@@ -12,9 +61,12 @@ const AddCraftItem = () => {
           <h2 className="text-4xl text-center mt-7 font-bold text-primary font-title mb-16">
             Add New Craft Item
           </h2>
-          <form className="px-5 w-full md:py-10 mb-10 text-gray-400">
+          <form
+            onSubmit={handleAddItems}
+            className="px-5 w-full md:py-10 mb-10 text-gray-400"
+          >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
-              {/* group 1 */}
+              {/* group 1 item nae */}
               <div className="flex flex-col gap-2">
                 <label className="text-2xl font-title font-semibold">
                   Item Name
@@ -28,14 +80,14 @@ const AddCraftItem = () => {
                 />
               </div>
 
-              {/* group 2 */}
+              {/* group 2 sub category */}
               <div className="flex flex-col gap-2">
                 <label className="text-2xl font-title font-semibold">
                   Sub Category
                 </label>
                 <select
                   name="sub_category"
-                  className="py-2 px-4 border-0 outline-none bg-transparent shadow-custom rounded-xl text-gray-300"
+                  className="py-2 px-4 border-0 outline-none bg-transparent shadow-custom rounded-xl text-gray-500"
                 >
                   <option value="Wooden Furniture & Sculptures">
                     Wooden Furniture & Sculptures
@@ -54,7 +106,7 @@ const AddCraftItem = () => {
                 </select>
               </div>
 
-              {/* group 3 */}
+              {/* group 3 price */}
               <div className="flex flex-col gap-2">
                 <label className="text-2xl font-title font-semibold">
                   Price
@@ -68,7 +120,7 @@ const AddCraftItem = () => {
                 />
               </div>
 
-              {/* group 4 */}
+              {/* group 4  rating */}
               <div className="flex flex-col gap-2">
                 <label className="text-2xl font-title font-semibold">
                   Rating
@@ -82,7 +134,7 @@ const AddCraftItem = () => {
                 />
               </div>
 
-              {/* group 5 */}
+              {/* group 5 photo url */}
               <div className="flex flex-col gap-2">
                 <label className="text-2xl font-title font-semibold">
                   Image URL
@@ -96,40 +148,43 @@ const AddCraftItem = () => {
                 />
               </div>
 
-              {/* group 6 */}
+              {/* group 6 Customization */}
               <div className="flex flex-col gap-2">
                 <label className="text-2xl font-title font-semibold">
                   Customization
                 </label>
                 <select
                   name="customization"
-                  className="py-2 px-4 border-0 outline-none bg-transparent shadow-custom rounded-xl text-gray-300"
+                  className="py-2 px-4 border-0 outline-none bg-transparent shadow-custom rounded-xl text-gray-500"
                 >
                   <option value="yes">Yes</option>
                   <option value="no">No</option>
                 </select>
               </div>
 
-              {/* group 7 */}
+              {/* group 7 Proccessing Time */}
               <div className="flex flex-col gap-2">
                 <label>Proccessing Time</label>
-                <input
-                  type="text"
+                <select
                   name="processing_time"
-                  className="py-2 px-4 border-0 outline-none bg-transparent shadow-custom rounded-xl"
-                  placeholder="Enter Proccessing Time"
-                  required
-                />
+                  className="py-2 px-4 border-0 outline-none bg-transparent shadow-custom rounded-xl text-gray-500"
+                >
+                  <option value="1To3Days">1 - 3 Days</option>
+                  <option value="3To5Days">3 - 5 Days</option>
+                  <option value="5To7Days">5 - 7 Days</option>
+                  <option value="8To10Days">8 - 10 Days</option>
+                  <option value="10To15Days">15 - 15 Days</option>
+                </select>
               </div>
 
-              {/* group 8 */}
+              {/* group 8 Stock Status */}
               <div className="flex flex-col gap-2">
                 <label className="text-2xl font-title font-semibold">
                   Stock Status
                 </label>
                 <select
                   name="stock_status"
-                  className="py-2 px-4 border-0 outline-none bg-transparent shadow-custom rounded-xl text-gray-300"
+                  className="py-2 px-4 border-0 outline-none bg-transparent shadow-custom rounded-xl text-gray-500"
                 >
                   <option value="in_stock">IN Stock</option>
                   <option value="made_order">Made to Order</option>
@@ -143,17 +198,20 @@ const AddCraftItem = () => {
                 Short Description
               </label>
               <textarea
-                name="description"
+                name="short_description"
                 className="py-2 px-4 border-0 outline-none h-44 bg-transparent shadow-custom rounded-xl w-full"
                 placeholder="Enter Short Description"
               ></textarea>
             </div>
 
-
             {/* add button */}
 
             <div className="mt-7 w-full">
-                <input type="submit" value="Add Craft Item" className="shadow-custom w-full py-3 px-8 rounded-full text-2xl font-medium text-primary" />
+              <input
+                type="submit"
+                value="Add Craft Item"
+                className="shadow-custom w-full py-3 px-8 rounded-full text-2xl font-medium text-primary"
+              />
             </div>
           </form>
         </div>
