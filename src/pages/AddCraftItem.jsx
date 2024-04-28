@@ -172,11 +172,11 @@ const AddCraftItem = () => {
                   required
                   className="py-2 px-4 border-0 outline-none bg-transparent shadow-custom rounded-xl text-gray-500"
                 >
-                  <option value="1To3Days">1 - 3 Days</option>
-                  <option value="3To5Days">3 - 5 Days</option>
-                  <option value="5To7Days">5 - 7 Days</option>
-                  <option value="8To10Days">8 - 10 Days</option>
-                  <option value="10To15Days">15 - 15 Days</option>
+                  <option value="1 - 3 Days">1 - 3 Days</option>
+                  <option value="3 - 5 Days">3 - 5 Days</option>
+                  <option value="5 - 7 Days">5 - 7 Days</option>
+                  <option value="8 - 10 Days">8 - 10 Days</option>
+                  <option value="10 - 15 Days">10 - 15 Days</option>
                 </select>
               </div>
 

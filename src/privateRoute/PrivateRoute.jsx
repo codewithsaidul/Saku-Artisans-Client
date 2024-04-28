@@ -3,15 +3,25 @@ import useAuth from "../hooks/useAuth"
 import PropTypes from 'prop-types'
 import { Link } from "react-router-dom";
 import BG from '../assets/Moon.svg'
+import { DNA } from "react-loader-spinner";
 
 const PrivateRoute = ({children}) => {
 
-    const { user, loader } = useAuth();
+    const { user, loading } = useAuth();
 
-    if (loader) {
-        
-    console.log("loader is running")
-            
+    if (loading) {
+      return (
+        <div className="flex justify-center items-center min-h-[calc(100vh-64px)]">
+          <DNA
+            visible={true}
+            height="80"
+            width="80"
+            ariaLabel="dna-loading"
+            wrapperStyle={{}}
+            wrapperClass="dna-wrapper"
+          />
+        </div>
+      );
     }
 
     if (user) {

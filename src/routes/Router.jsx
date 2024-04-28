@@ -9,6 +9,7 @@ import Register from "../pages/Register";
 import NotFound from "../pages/NotFound";
 import AddCraftItem from "../pages/AddCraftItem";
 import PrivateRoute from "../privateRoute/PrivateRoute";
+import UpdateCraftData from "../pages/UpdateCraftData";
 
 
 
@@ -35,7 +36,19 @@ export const router = createBrowserRouter([
             <CraftDetails />
           </PrivateRoute>
         ),
-        loader: () => fetch("/http://localhost:5000/allCraftItems"),
+
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/allCraftItems/${params.id}`),
+      },
+      {
+        path: "/updateCraft/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateCraftData />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`/http://localhost:5000/allCraftItems/${params.id}`),
       },
       {
         path: "/myCraftsList",
