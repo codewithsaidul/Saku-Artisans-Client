@@ -1,16 +1,87 @@
 
 import { CiMail } from 'react-icons/ci';
 import { FaImage, FaUser } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import { register } from 'swiper/element';
+import { Link, useNavigate } from 'react-router-dom';
+
+import { useForm } from "react-hook-form";
 import BG from '../assets/Moon.svg'
+import useAuth from '../hooks/useAuth';
+import { updateProfile } from 'firebase/auth';
+import Swal from 'sweetalert2';
 
 const Register = () => {
+
+
+  const naviGate = useNavigate();
+
+    const { user, createNewUser, loggedOutUser, setUser } = useAuth();
+    
+
+     const {
+       register,
+       handleSubmit,
+      //  resetField,
+       // watch,
+       formState: { errors },
+     } = useForm();
+
+      const onSubmit = (data) => {
+        const name = data.Name;
+        const photo = data.Photo;
+        const email = data.Email;
+        const password = data.Password;
+
+        // const { Name, Photo, Email, Password } = data;
+        const userInfo = { name, photo, email, password };
+
+        // resetField("Name");
+        // resetField("Photo");
+        // resetField("Email");
+        // resetField("Password");
+        // Create a New User
+        createNewUser(email, password)
+          .then((result) => {
+            updateProfile(result.user, {
+              displayName: name,
+              photoURL: photo,
+            });
+            setUser({ ...user, displayName: name, photoURL: photo });
+
+            fetch("http://localhost:5000/users", {
+              method: "POST",
+              header: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(userInfo),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                if (data.insertedId) {
+                  Swal.fire({
+                    title: "Success!",
+                    text: "User Added Successfully!",
+                    icon: "success",
+                    confirmButtonText: "Ok",
+                  });
+                }
+              });
+            naviGate("/login");
+            loggedOutUser();
+          })
+          .catch(() => {
+            Swal.fire({
+              title: "Error!",
+              text: "E-Mail Already In Used!",
+              icon: "error",
+              confirmButtonText: "Ok",
+            });
+          });
+      };
+
   return (
     <div>
       <div>
         <div>
-
           <div
             className="w-full mt-5 flex justify-center items-center px-5"
             style={{ backgroundImage: `url(${BG})` }}
@@ -22,7 +93,7 @@ const Register = () => {
               className="shadow-custom my-10 rounded-xl w-full md:w-[50%]"
             >
               <form
-                // onSubmit={handleSubmit(onSubmit)}
+                onSubmit={handleSubmit(onSubmit)}
                 className="py-10 px-5 md:p-20 md:py-10 mb-10 "
               >
                 <h2 className="text-3xl font-title font-bold text-center text-white mb-7">
@@ -48,11 +119,11 @@ const Register = () => {
                       className="w-full outline-none border-0 bg-transparent  pl-4 text-gray-200 "
                     />
                   </div>
-                  {/* {errors.Name && (
+                  {errors.Name && (
                     <p className="text-base text-red-600 font-semibold">
                       {errors.Name.message}
                     </p>
-                  )} */}
+                  )}
                 </div>
 
                 <div className="flex flex-col gap-2 mt-5 mb-3">
@@ -64,21 +135,21 @@ const Register = () => {
                     <FaImage size={24} className="text-white" />
                     <input
                       type="text"
-                    //   {...register("Photo", {
-                    //     required: {
-                    //       value: true,
-                    //       message: "Please Fill Up This ",
-                    //     },
-                    //   })}
+                      {...register("Photo", {
+                        required: {
+                          value: true,
+                          message: "Please Fill Up This ",
+                        },
+                      })}
                       placeholder="Type Your Photo URL"
                       className="w-full outline-none border-0 bg-transparent  pl-4 text-gray-200 "
                     />
                   </div>
-                  {/* {errors.Photo && (
+                  {errors.Photo && (
                     <p className="text-base text-red-600 font-semibold">
                       {errors.Photo.message}
                     </p>
-                  )} */}
+                  )}
                 </div>
 
                 <div className="flex flex-col gap-2 mt-5 mb-3">
@@ -90,21 +161,21 @@ const Register = () => {
                     <CiMail size={24} className="text-white" />
                     <input
                       type="email"
-                    //   {...register("Email", {
-                    //     required: {
-                    //       value: true,
-                    //       message: "Please Fill Up This",
-                    //     },
-                    //   })}
+                      {...register("Email", {
+                        required: {
+                          value: true,
+                          message: "Please Fill Up This",
+                        },
+                      })}
                       placeholder="Type Your Email"
                       className="w-full outline-none border-0 bg-transparent  pl-4 text-gray-200 "
                     />
                   </div>
-                  {/* {errors.Email && (
+                  {errors.Email && (
                     <p className="text-base text-red-600 font-semibold">
                       {errors.Email.message}
                     </p>
-                  )} */}
+                  )}
                 </div>
 
                 <div className="flex flex-col gap-2">
@@ -119,19 +190,19 @@ const Register = () => {
                     )} */}
                     <input
                       type={"password"}
-                      //   {...register("Password", { showPassword ? "text" :
-                      //     validate: {
-                      //       validatedPassword: (value) => {
-                      //         if (value.length < 6) {
-                      //           return "Password Should Be At Least 6 Character or Above";
-                      //         } else if (!/[A-Z]/.test(value)) {
-                      //           return "Password should contain at least one uppercase letter";
-                      //         } else if (!/([a-z])/.test(value)) {
-                      //           return "Your password should have at least one lowercase character";
-                      //         }
-                      //       },
-                      //     },
-                      //   })}
+                      {...register("Password", {
+                        validate: {
+                          validatedPassword: (value) => {
+                            if (value.length < 6) {
+                              return "Password Should Be At Least 6 Character or Above";
+                            } else if (!/[A-Z]/.test(value)) {
+                              return "Password should contain at least one uppercase letter";
+                            } else if (!/([a-z])/.test(value)) {
+                              return "Your password should have at least one lowercase character";
+                            }
+                          },
+                        },
+                      })}
                       placeholder="Type Your Password"
                       className="w-full outline-none border-0 bg-transparent  pl-4 text-gray-200 "
                     />
@@ -145,11 +216,11 @@ const Register = () => {
                     </span> */}
                   </div>
 
-                  {/* {errors.Password && (
+                  {errors.Password && (
                     <p className="text-base text-red-600 font-semibold">
                       {errors.Password.message}
                     </p>
-                  )} */}
+                  )}
                 </div>
 
                 <button className="p-5 shadow-custom mt-7 w-full text-white text-xl font-bold rounded-full">
@@ -161,8 +232,11 @@ const Register = () => {
                 <div>
                   <h2 className="text-xl font-normal text-gray-300 mt-7">
                     Already Have An Account?
-                    <Link to="/login" className="text-primary font-title
-                     ml-2 font-extrabold">
+                    <Link
+                      to="/login"
+                      className="text-primary font-title
+                     ml-2 font-extrabold"
+                    >
                       Login
                     </Link>
                   </h2>
