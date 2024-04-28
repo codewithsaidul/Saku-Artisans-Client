@@ -7,7 +7,6 @@ import { Typewriter } from "react-simple-typewriter";
 const Home = () => {
   const craftItems = useLoaderData();
 
-
   
   return (
     <div className="artsContainer mt-10">

@@ -1,20 +1,33 @@
 import { Typewriter } from "react-simple-typewriter";
-import { Link, useLoaderData } from "react-router-dom";
+
 import MyCraftList from "../components/MyCraftList";
 import { IoIosArrowDown } from "react-icons/io";
-import { useEffect, useState } from "react";
+import { useEffect, useState,  } from "react";
 import BGImg from "../assets/slide1.jpg";
+import useAuth from "../hooks/useAuth";
+import { Link } from "react-router-dom";
 
 const MyCraftLists = () => {
-  const craftItems = useLoaderData();
+  // const craftItems = useLoaderData();
+
+
+  const {user} = useAuth()
+
 
   const [crafts, setCraft] = useState([]);
   const [displayCraft, setDisplayCraft] = useState();
 
   useEffect(() => {
-    setCraft(craftItems);
-    setDisplayCraft(craftItems);
-  }, [craftItems]);
+    fetch(`http://localhost:5000/myCraft/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setCraft(data);
+        setDisplayCraft(data)
+      });
+  }, [user]);
+
+
+  console.log(crafts)
 
   // filter method using customization
   const handleFilter = (fillter) => {
@@ -94,7 +107,7 @@ const MyCraftLists = () => {
         <div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5 md:px-0">
             {crafts.map((craft) => (
-              <MyCraftList key={craft.id} craft={craft} />
+              <MyCraftList key={craft._id} craft={craft} />
             ))}
           </div>
         </div>

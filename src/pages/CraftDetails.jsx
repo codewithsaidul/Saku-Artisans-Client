@@ -5,7 +5,6 @@ const CraftDetails = () => {
 
   const craft = useLoaderData();
 
-
   return (
     <div>
       <div className="relative w-full">

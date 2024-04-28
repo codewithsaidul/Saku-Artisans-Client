@@ -57,7 +57,7 @@ export const router = createBrowserRouter([
             <MyCraftLists />
           </PrivateRoute>
         ),
-        loader: () => fetch(`/craftItem.json`),
+        // loader: () => fetch(`/craftItem.json`),
       },
       {
         path: "/addCraftsItem",

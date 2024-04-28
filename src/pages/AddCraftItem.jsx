@@ -1,7 +1,11 @@
 import Swal from "sweetalert2";
 import BG from "../assets/Moon.svg";
+import useAuth from '../hooks/useAuth'
 
 const AddCraftItem = () => {
+
+  const {user} = useAuth()
+
   const handleAddItems = (e) => {
     e.preventDefault();
 
@@ -15,10 +19,14 @@ const AddCraftItem = () => {
     const imageUrl = form.img_url.value;
     const stockStatus = form.stock_status.value;
     const shortDescription = form.short_description.value;
+    const email = user.email;
+    const userName = user.displayName;
 
     form.reset();
 
     const craftData = {
+      userName,
+      email,
       itemeName,
       subCategory,
       price,
