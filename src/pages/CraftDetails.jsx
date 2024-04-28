@@ -24,7 +24,7 @@ const CraftDetails = () => {
         </div>
       </div>
 
-      <div className="artsContainer px-5 mt-16 md:px-10 lg:px-0">
+      <div className="artsContainer mt-16">
         <div className="flex flex-col lg:flex-row gap-2 h-auto bg-base-100 shadow-xl border-2 rounded-3xl border-transparent hover:border-primary duration-1000 hover:scale-95">
           <figure className="w-full lg:w-[40%] h-fit">
             <img
