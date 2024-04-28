@@ -20,12 +20,12 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("/craftItem.json"),
+        loader: () => fetch("http://localhost:5000/allCraftItems"),
       },
       {
         path: "/allCraftsItem",
         element: <AllCraftItems />,
-        loader: () => fetch("/craftItem.json"),
+        loader: () => fetch("http://localhost:5000/allCraftItems"),
       },
       {
         path: "/allCraftsItem/:id",

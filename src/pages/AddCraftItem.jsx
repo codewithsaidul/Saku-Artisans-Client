@@ -87,6 +87,7 @@ const AddCraftItem = () => {
                 </label>
                 <select
                   name="sub_category"
+                  required
                   className="py-2 px-4 border-0 outline-none bg-transparent shadow-custom rounded-xl text-gray-500"
                 >
                   <option value="Wooden Furniture & Sculptures">
@@ -155,6 +156,7 @@ const AddCraftItem = () => {
                 </label>
                 <select
                   name="customization"
+                  required
                   className="py-2 px-4 border-0 outline-none bg-transparent shadow-custom rounded-xl text-gray-500"
                 >
                   <option value="yes">Yes</option>
@@ -167,6 +169,7 @@ const AddCraftItem = () => {
                 <label>Proccessing Time</label>
                 <select
                   name="processing_time"
+                  required
                   className="py-2 px-4 border-0 outline-none bg-transparent shadow-custom rounded-xl text-gray-500"
                 >
                   <option value="1To3Days">1 - 3 Days</option>
@@ -183,6 +186,7 @@ const AddCraftItem = () => {
                   Stock Status
                 </label>
                 <select
+                  required
                   name="stock_status"
                   className="py-2 px-4 border-0 outline-none bg-transparent shadow-custom rounded-xl text-gray-500"
                 >
@@ -198,8 +202,9 @@ const AddCraftItem = () => {
                 Short Description
               </label>
               <textarea
+                required
                 name="short_description"
-                className="py-2 px-4 border-0 outline-none h-44 bg-transparent shadow-custom rounded-xl w-full"
+                className="py-2 resize-none overflow-hiddennode px-4 border-0 outline-none h-44 bg-transparent shadow-custom rounded-xl w-full"
                 placeholder="Enter Short Description"
               ></textarea>
             </div>
