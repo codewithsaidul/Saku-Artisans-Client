@@ -1,80 +1,90 @@
 import { CiMail } from "react-icons/ci";
 import { FaGithub, FaGoogle, FaLock } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import BG from '../assets/Moon.svg'
+import BG from "../assets/Moon.svg";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAuth from "../hooks/useAuth";
 
-
 const Login = () => {
-
-  const naviGate = useNavigate()
+  const naviGate = useNavigate();
 
   const { register, handleSubmit, resetField } = useForm();
 
-  const {loginUser, githubSignIn, setUser} = useAuth();
-
+  const { loginUser, githubSignIn, googleSignIn, setUser } = useAuth();
 
   // Sign In Existing User With Email & Password
-    const onSubmit = (data) => {
-      const { Email, Password } = data;
-      // console.log(Email, Password)
-      resetField("Email");
-      resetField("Password");
+  const onSubmit = (data) => {
+    const { Email, Password } = data;
+    // console.log(Email, Password)
+    resetField("Email");
+    resetField("Password");
 
-      loginUser(Email, Password)
-        .then((result) => {
-          setUser(result.user);
-          naviGate("/");
-          
-        })
-        .catch(() => {
-          Swal.fire({
-            title: "Wrong!",
-            text: "Your Email or Password Are Wrong!",
-            icon: "error",
-            confirmButtonText: "Ok",
-          });
+    loginUser(Email, Password)
+      .then((result) => {
+        setUser(result.user);
+        naviGate("/");
+      })
+      .catch(() => {
+        Swal.fire({
+          title: "Wrong!",
+          text: "Your Email or Password Are Wrong!",
+          icon: "error",
+          confirmButtonText: "Ok",
         });
-    };
+      });
+  };
 
-
-    // Sign In Existing User With Github
-    const handleGithubLogin = () => {
-      githubSignIn()
-        .then((result) => {
-          setUser(result.user);
-          naviGate("/");
-        })
-        .catch(() => {
-          Swal.fire({
-            title: "Wrong!",
-            text: "Your Email or Password Are Wrong!",
-            icon: "error",
-            confirmButtonText: "Ok",
-          });
+  // Sign In Existing User With Github
+  const handleGithubLogin = () => {
+    githubSignIn()
+      .then((result) => {
+        setUser(result.user);
+        naviGate("/");
+      })
+      .catch(() => {
+        Swal.fire({
+          title: "Wrong!",
+          text: "Your Email or Password Are Wrong!",
+          icon: "error",
+          confirmButtonText: "Ok",
         });
-    }
+      });
+  };
+
+  // Sign In Existing User With Google
+  const handleGoogleLogin = () => {
+    googleSignIn()
+      .then((result) => {
+        setUser(result.user);
+        naviGate("/");
+      })
+      .catch(() => {
+        Swal.fire({
+          title: "Wrong!",
+          text: "Your Email or Password Are Wrong!",
+          icon: "error",
+          confirmButtonText: "Ok",
+        });
+      });
+  };
+
+
+
 
   return (
     <div>
       <div>
-
         <div
           className="w-full min-h-screen flex justify-center items-center px-5"
           style={{ backgroundImage: `url(${BG})` }}
         >
-          <div
-            className="shadow-custom my-10 px-5 rounded-xl w-full md:w-[50%]"
-          >
+          <div className="shadow-custom my-10 px-5 rounded-xl w-full md:w-[50%]">
             <form
               onSubmit={handleSubmit(onSubmit)}
               className="py-10 px-5 md:p-20"
             >
-              <h2
-                className="text-3xl font-title font-bold text-center text-white mb-7"
-              >
+              <h2 className="text-3xl font-title font-bold text-center text-white mb-7">
                 Login In Your Account
               </h2>
 
@@ -158,7 +168,7 @@ const Login = () => {
                   data-aos="fade-right"
                   data-aos-duration="1000"
                   data-aos-easing="ease-in-out"
-                //   onClick={handleGoogleLogin}
+                    onClick={handleGoogleLogin}
                   className="p-3 bg-red-500 text-white rounded-full"
                 >
                   <FaGoogle size={24} />
@@ -181,7 +191,10 @@ const Login = () => {
               >
                 <h2 className="text-xl font-normal text-gray-300 mt-7">
                   Don&apos;t Have An Account?{" "}
-                  <Link to="/register" className="text-primary font-title ml-2 font-extrabold">
+                  <Link
+                    to="/register"
+                    className="text-primary font-title ml-2 font-extrabold"
+                  >
                     Register
                   </Link>{" "}
                 </h2>
@@ -192,6 +205,6 @@ const Login = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Login
+export default Login;
