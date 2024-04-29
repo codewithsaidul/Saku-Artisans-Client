@@ -57,6 +57,7 @@ const Login = () => {
     googleSignIn()
       .then((result) => {
         setUser(result.user);
+        
         naviGate("/");
       })
       .catch(() => {

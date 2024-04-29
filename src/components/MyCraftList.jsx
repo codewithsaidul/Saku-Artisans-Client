@@ -71,7 +71,7 @@ const MyCraftList = ({ craft, handleDelete }) => {
               Delete
             </button>
 
-            <Link to={`/allCraftsItem`}>
+            <Link to={`/updateCraft/${_id}`}>
               <button className="bg-primary py-2 px-5 border border-primary hover:text-black hover:bg-transparent duration-1000 rounded-full text-white text-lg font-medium">
                 Update
               </button>
