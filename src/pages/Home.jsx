@@ -4,6 +4,7 @@ import CraftCard from "../components/CraftCard";
 import { Typewriter } from "react-simple-typewriter";
 import CraftCategorys from "./CraftCategorys";
 import Contact from "../components/Contact";
+import Testimonial from "../components/Testimonial";
 
 
 
@@ -55,6 +56,10 @@ const Home = () => {
             </h2>
             <CraftCategorys></CraftCategorys>
           </div>
+        </div>
+
+        <div>
+          <Testimonial/>
         </div>
       </div>
 
