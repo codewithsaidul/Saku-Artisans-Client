@@ -2,6 +2,7 @@ import { Link, useLoaderData } from "react-router-dom"
 import Banner from "../components/Banner"
 import CraftCard from "../components/CraftCard";
 import { Typewriter } from "react-simple-typewriter";
+import CraftCategorys from "./CraftCategorys";
 
 
 
@@ -41,12 +42,12 @@ const Home = () => {
           </div>
         </div>
 
-{/* 
+
         <div>
           <div>
-              <CraftByCategory></CraftByCategory>
+              <CraftCategorys></CraftCategorys>
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   );

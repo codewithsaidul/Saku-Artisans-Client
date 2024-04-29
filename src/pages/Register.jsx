@@ -52,7 +52,7 @@ const Register = () => {
             });
             setUser({ ...user, displayName: name, photoURL: photo });
 
-            fetch("http://localhost:5000/users", {
+            fetch("https://assignment-server-flame.vercel.app/users", {
               method: "POST",
               header: {
                 "content-type": "application/json",

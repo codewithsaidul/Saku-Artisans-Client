@@ -18,11 +18,11 @@ const MyCraftLists = () => {
   const [displayCraft, setDisplayCraft] = useState();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myCraft/${user?.email}`)
+    fetch(`https://assignment-server-flame.vercel.app/myCraft/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setCraft(data);
-        setDisplayCraft(data)
+        setDisplayCraft(data);
       });
   }, [user]);
 
@@ -38,9 +38,12 @@ const MyCraftLists = () => {
        confirmButtonText: "Yes, delete it!",
      }).then((result) => {
        if (result.isConfirmed) {
-         fetch(`http://localhost:5000/allCraftItems/${id}`, {
-           method: "DELETE",
-         })
+         fetch(
+           `https://assignment-server-flame.vercel.app/allCraftItems/${id}`,
+           {
+             method: "DELETE",
+           }
+         )
            .then((res) => res.json())
            .then((data) => {
              if (data.deletedCount > 0) {

@@ -23,12 +23,14 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:5000/allCraftItems"),
+        loader: () =>
+          fetch("https://assignment-server-flame.vercel.app/allCraftItems"),
       },
       {
         path: "/allCraftsItem",
         element: <AllCraftItems />,
-        loader: () => fetch("http://localhost:5000/allCraftItems"),
+        loader: () =>
+          fetch("https://assignment-server-flame.vercel.app/allCraftItems"),
       },
 
       {
@@ -40,7 +42,9 @@ export const router = createBrowserRouter([
         ),
 
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allCraftItems/${params.id}`),
+          fetch(
+            `https://assignment-server-flame.vercel.app/allCraftItems/${params.id}`
+          ),
       },
       {
         path: "/updateCraft/:id",
@@ -50,7 +54,9 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allCraftItems/${params.id}`),
+          fetch(
+            `https://assignment-server-flame.vercel.app/allCraftItems/${params.id}`
+          ),
       },
       {
         path: "/myCraftsList",

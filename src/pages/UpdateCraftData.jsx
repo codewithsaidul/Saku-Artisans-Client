@@ -6,6 +6,7 @@ const UpdateCraftData = () => {
 
     const craft = useLoaderData();
     
+    
 
       const handleUpdateCraftItem = (e) => {
         e.preventDefault();
@@ -39,7 +40,7 @@ const UpdateCraftData = () => {
         
 
 
-        fetch(`http://localhost:5000/allCraftItems/${craft._id}`, {
+        fetch(`https://assignment-server-flame.vercel.app/allCraftItems/${craft._id}`, {
           method: "PUT",
           headers: {
             "content-type": "application/json",

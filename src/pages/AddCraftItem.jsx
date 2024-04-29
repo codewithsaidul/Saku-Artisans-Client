@@ -38,7 +38,7 @@ const AddCraftItem = () => {
       shortDescription,
     };
 
-    fetch("http://localhost:5000/allCraftItems", {
+    fetch("https://assignment-server-flame.vercel.app/allCraftItems", {
       method: "POST",
       headers: {
         'content-type': 'application/json'
