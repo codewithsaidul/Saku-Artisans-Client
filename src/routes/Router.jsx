@@ -13,6 +13,7 @@ import UpdateCraftData from "../pages/UpdateCraftData";
 
 
 
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -29,6 +30,7 @@ export const router = createBrowserRouter([
         element: <AllCraftItems />,
         loader: () => fetch("http://localhost:5000/allCraftItems"),
       },
+
       {
         path: "/allCraftsItem/:id",
         element: (
@@ -57,7 +59,6 @@ export const router = createBrowserRouter([
             <MyCraftLists />
           </PrivateRoute>
         ),
-        // loader: () => fetch(`/craftItem.json`),
       },
       {
         path: "/addCraftsItem",

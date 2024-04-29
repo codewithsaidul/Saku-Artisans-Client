@@ -8,7 +8,6 @@ const Navbar = () => {
 
   const { user, loggedOutUser } = useAuth();
 
-
   const localTheme = localStorage.getItem("theme");
   const [theme, setTheme] = useState(localTheme || 'light');
 

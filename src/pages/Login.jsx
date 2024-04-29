@@ -13,8 +13,10 @@ const Login = () => {
 
   const { register, handleSubmit, resetField } = useForm();
 
-  const {loginUser, setUser} = useAuth();
+  const {loginUser, githubSignIn, setUser} = useAuth();
 
+
+  // Sign In Existing User With Email & Password
     const onSubmit = (data) => {
       const { Email, Password } = data;
       // console.log(Email, Password)
@@ -36,6 +38,24 @@ const Login = () => {
           });
         });
     };
+
+
+    // Sign In Existing User With Github
+    const handleGithubLogin = () => {
+      githubSignIn()
+        .then((result) => {
+          setUser(result.user);
+          naviGate("/");
+        })
+        .catch(() => {
+          Swal.fire({
+            title: "Wrong!",
+            text: "Your Email or Password Are Wrong!",
+            icon: "error",
+            confirmButtonText: "Ok",
+          });
+        });
+    }
 
   return (
     <div>
@@ -147,7 +167,7 @@ const Login = () => {
                   data-aos="fade-right"
                   data-aos-duration="1000"
                   data-aos-easing="ease-in-out"
-                //   onClick={handleGithubLogin}
+                  onClick={handleGithubLogin}
                   className="p-3 bg-black text-white rounded-full"
                 >
                   <FaGithub size={24} />

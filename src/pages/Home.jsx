@@ -4,6 +4,7 @@ import CraftCard from "../components/CraftCard";
 import { Typewriter } from "react-simple-typewriter";
 
 
+
 const Home = () => {
   const craftItems = useLoaderData();
 
@@ -40,10 +41,10 @@ const Home = () => {
           </div>
         </div>
 
-
-        {/* <div>
+{/* 
+        <div>
           <div>
-
+              <CraftByCategory></CraftByCategory>
           </div>
         </div> */}
       </div>
