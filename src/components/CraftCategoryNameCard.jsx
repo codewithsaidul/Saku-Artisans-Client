@@ -6,7 +6,7 @@ const CraftCategoryNameCard = ({ craftCat }) => {
 
     const {subCategory_name, image} = craftCat
 
-    // console.log(subCategory_name, image)
+
 
   return (
     <div>

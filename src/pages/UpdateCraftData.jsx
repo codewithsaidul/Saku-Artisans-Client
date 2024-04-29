@@ -40,13 +40,16 @@ const UpdateCraftData = () => {
         
 
 
-        fetch(`https://assignment-server-flame.vercel.app/allCraftItems/${craft._id}`, {
-          method: "PUT",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(craftData),
-        })
+        fetch(
+          `https://assign-saku-artisans-server.vercel.app/allCraftItems/${craft._id}`,
+          {
+            method: "PUT",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(craftData),
+          }
+        )
           .then((res) => res.json())
           .then(() => {
             Swal.fire({
@@ -55,7 +58,6 @@ const UpdateCraftData = () => {
               icon: "success",
               confirmButtonText: "Ok",
             });
-            
           });
       };
 

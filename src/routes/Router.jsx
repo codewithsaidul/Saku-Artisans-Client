@@ -15,6 +15,7 @@ import CraftCategoryItems from "../pages/CraftCategoryItems";
 
 
 
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -25,13 +26,13 @@ export const router = createBrowserRouter([
         path: "/",
         element: <Home />,
         loader: () =>
-          fetch("https://assignment-server-flame.vercel.app/allCraftItems"),
+          fetch("https://assign-saku-artisans-server.vercel.app/allCraftItems"),
       },
       {
         path: "/allCraftsItem",
         element: <AllCraftItems />,
         loader: () =>
-          fetch("https://assignment-server-flame.vercel.app/allCraftItems"),
+          fetch("https://assign-saku-artisans-server.vercel.app/allCraftItems"),
       },
 
       {
@@ -44,7 +45,7 @@ export const router = createBrowserRouter([
 
         loader: ({ params }) =>
           fetch(
-            `https://assignment-server-flame.vercel.app/allCraftItems/${params.id}`
+            `https://assign-saku-artisans-server.vercel.app/allCraftItems/${params.id}`
           ),
       },
 
@@ -58,7 +59,7 @@ export const router = createBrowserRouter([
 
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/allCraftItems/craftItemsCategory/${params.subCategory}`
+            `https://assign-saku-artisans-server.vercel.app/allCraftItems/craftItemsCategory/${params.subCategory}`
           ),
       },
 
@@ -71,7 +72,7 @@ export const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://assignment-server-flame.vercel.app/allCraftItems/${params.id}`
+            `https://assign-saku-artisans-server.vercel.app/allCraftItems/${params.id}`
           ),
       },
       {
@@ -98,6 +99,7 @@ export const router = createBrowserRouter([
         path: "/register",
         element: <Register />,
       },
+
     ],
   },
 ]);

@@ -219,7 +219,7 @@ const Navbar = () => {
                 <input
                   type="checkbox"
                   className="theme-controller"
-                  checked={theme === "dark"}
+                  defaultChecked={theme === "dark"}
                 />
 
                 {/* sun icon */}

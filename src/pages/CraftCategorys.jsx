@@ -8,14 +8,15 @@ const CraftCategorys = () => {
     const [craftCategory, setCraftCategory] = useState([]);
 
     useEffect( () => {
-        fetch("http://localhost:5000/craftCategory")
-        .then(res => res.json())
-        .then(data => setCraftCategory(data))
+        fetch(
+          "https://assign-saku-artisans-server.vercel.app/craftCategory"
+        )
+          .then((res) => res.json())
+          .then((data) => setCraftCategory(data));
     }, [])
 
 
 
-    // console.log(craftCategory)
 
   return (
     <div>

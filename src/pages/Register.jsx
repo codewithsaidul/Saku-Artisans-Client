@@ -52,13 +52,16 @@ const Register = () => {
             });
             setUser({ ...user, displayName: name, photoURL: photo });
 
-            fetch("https://assignment-server-flame.vercel.app/users", {
-              method: "POST",
-              header: {
-                "content-type": "application/json",
-              },
-              body: JSON.stringify(userInfo),
-            })
+            fetch(
+              "https://assign-saku-artisans-server.vercel.app/users",
+              {
+                method: "POST",
+                header: {
+                  "content-type": "application/json",
+                },
+                body: JSON.stringify(userInfo),
+              }
+            )
               .then((res) => res.json())
               .then((data) => {
                 if (data.insertedId) {

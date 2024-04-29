@@ -3,6 +3,7 @@ import Banner from "../components/Banner"
 import CraftCard from "../components/CraftCard";
 import { Typewriter } from "react-simple-typewriter";
 import CraftCategorys from "./CraftCategorys";
+import Contact from "../components/Contact";
 
 
 
@@ -11,8 +12,8 @@ const Home = () => {
 
   
   return (
-    <div className="artsContainer mt-10">
-      <div>
+    <div>
+      <div className="artsContainer mt-10">
         <Banner />
 
         <div>
@@ -38,16 +39,30 @@ const Home = () => {
           </div>
 
           <div className="my-16 flex justify-center">
-            <Link to="/allCraftsItem" className="py-3 px-7 bg-transparent border border-primary text-2xl font-medium hover:text-white hover:bg-primary hover:border duration-1000 hover:duration-1000 rounded-full">See More</Link>
+            <Link
+              to="/allCraftsItem"
+              className="py-3 px-7 bg-transparent border border-primary text-2xl font-medium hover:text-white hover:bg-primary hover:border duration-1000 hover:duration-1000 rounded-full"
+            >
+              See More
+            </Link>
           </div>
         </div>
-
 
         <div>
           <div>
-              <CraftCategorys></CraftCategorys>
+            <h2 className="text-center text-6xl font-title font-bold text-primary my-24">
+              Craft Item By Sub Category
+            </h2>
+            <CraftCategorys></CraftCategorys>
           </div>
         </div>
+      </div>
+
+      <div>
+        <h2 className="text-center text-6xl font-title font-bold text-primary my-24">
+          Contact With Us
+        </h2>
+        <Contact />
       </div>
     </div>
   );

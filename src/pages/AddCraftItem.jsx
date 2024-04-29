@@ -38,24 +38,24 @@ const AddCraftItem = () => {
       shortDescription,
     };
 
-    fetch("https://assignment-server-flame.vercel.app/allCraftItems", {
+    fetch("https://assign-saku-artisans-server.vercel.app/allCraftItems", {
       method: "POST",
       headers: {
-        'content-type': 'application/json'
+        "content-type": "application/json",
       },
-      body: JSON.stringify(craftData)
+      body: JSON.stringify(craftData),
     })
-    .then(res => res.json())
-    .then(data => {
-      if(data.insertedId) {
-        Swal.fire({
-          title: "Success!",
-          text: "Arts & Craft Items Added Successfully!",
-          icon: "success",
-          confirmButtonText: "Ok",
-        });
-      }
-    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "Arts & Craft Items Added Successfully!",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
+        }
+      });
   };
 
   return (

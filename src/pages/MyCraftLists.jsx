@@ -18,7 +18,9 @@ const MyCraftLists = () => {
   const [displayCraft, setDisplayCraft] = useState();
 
   useEffect(() => {
-    fetch(`https://assignment-server-flame.vercel.app/myCraft/${user?.email}`)
+    fetch(
+      `https://assign-saku-artisans-server.vercel.app/myCraft/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setCraft(data);
