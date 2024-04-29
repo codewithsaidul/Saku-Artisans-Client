@@ -10,6 +10,7 @@ import NotFound from "../pages/NotFound";
 import AddCraftItem from "../pages/AddCraftItem";
 import PrivateRoute from "../privateRoute/PrivateRoute";
 import UpdateCraftData from "../pages/UpdateCraftData";
+import CraftCategoryItems from "../pages/CraftCategoryItems";
 
 
 
@@ -46,6 +47,21 @@ export const router = createBrowserRouter([
             `https://assignment-server-flame.vercel.app/allCraftItems/${params.id}`
           ),
       },
+
+      {
+        path: "/craftItemsCategory/:subCategory",
+        element: (
+          <PrivateRoute>
+            <CraftCategoryItems />
+          </PrivateRoute>
+        ),
+
+        loader: ({ params }) =>
+          fetch(
+            `http://localhost:5000/allCraftItems/craftItemsCategory/${params.subCategory}`
+          ),
+      },
+
       {
         path: "/updateCraft/:id",
         element: (
