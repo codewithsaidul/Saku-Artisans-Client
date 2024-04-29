@@ -1,12 +1,62 @@
 import { useLoaderData } from "react-router-dom"
 import BG from '../assets/Moon.svg'
+import Swal from "sweetalert2";
 
 const UpdateCraftData = () => {
 
     const craft = useLoaderData();
     
 
-    
+      const handleUpdateCraftItem = (e) => {
+        e.preventDefault();
+
+        const form = e.target;
+        const itemeName = form.item_name.value;
+        const subCategory = form.sub_category.value;
+        const price = form.price.value;
+        const customization = form.customization.value;
+        const rating = form.rating.value;
+        const processingTime = form.processing_time.value;
+        const imageUrl = form.img_url.value;
+        const stockStatus = form.stock_status.value;
+        const shortDescription = form.short_description.value;
+
+
+        form.reset();
+
+        const craftData = {
+          itemeName,
+          subCategory,
+          price,
+          rating,
+          customization,
+          processingTime,
+          stockStatus,
+          imageUrl,
+          shortDescription,
+        };
+
+        
+
+
+        fetch(`http://localhost:5000/allCraftItems/${craft._id}`, {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(craftData),
+        })
+          .then((res) => res.json())
+          .then(() => {
+            Swal.fire({
+              title: "Success!",
+              text: "Arts & Craft Items Updated Successfully!",
+              icon: "success",
+              confirmButtonText: "Ok",
+            });
+            
+          });
+      };
 
   return (
     <div>
@@ -20,7 +70,7 @@ const UpdateCraftData = () => {
             Update Craft Item Data
           </h2>
           <form
-            // onSubmit={handleAddItems}
+            onSubmit={handleUpdateCraftItem}
             className="px-5 w-full md:py-10 mb-10 text-gray-400"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
