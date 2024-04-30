@@ -82,7 +82,7 @@ const Contact = () => {
               {/* group 9 */}
               <div className="flex flex-col gap-2 w-full mt-8">
                 <label className="text-2xl font-title font-semibold">
-                  Short Description
+                  Message
                 </label>
                 <textarea
                   required
@@ -97,7 +97,7 @@ const Contact = () => {
               <div className="mt-7 w-full">
                 <input
                   type="submit"
-                  value="Add Craft Item"
+                  value="Send Message"
                   className="shadow-custom w-full py-3 px-8 rounded-full text-2xl font-medium text-primary"
                 />
               </div>
