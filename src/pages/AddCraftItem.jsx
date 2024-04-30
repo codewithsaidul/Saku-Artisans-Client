@@ -1,5 +1,4 @@
 import Swal from "sweetalert2";
-import BG from "../assets/Moon.svg";
 import useAuth from '../hooks/useAuth'
 
 const AddCraftItem = () => {
@@ -63,7 +62,7 @@ const AddCraftItem = () => {
       {" "}
       <div
         className="w-full min-h-screen flex justify-center items-center px-5"
-        style={{ backgroundImage: `url(${BG})` }}
+        style={{ backgroundImage: "url(/Moon.svg)" }}
       >
         <div className="shadow-custom my-10 rounded-xl w-full md:w-[70%]">
           <h2 className="text-4xl text-center mt-7 font-bold text-primary font-title mb-16">

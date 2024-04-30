@@ -4,7 +4,6 @@ import { FaEye, FaEyeSlash, FaImage, FaUser } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { useForm } from "react-hook-form";
-import BG from '../assets/Moon.svg'
 import useAuth from '../hooks/useAuth';
 import { updateProfile } from 'firebase/auth';
 import Swal from 'sweetalert2';
@@ -92,7 +91,7 @@ const Register = () => {
         <div>
           <div
             className="w-full mt-5 flex justify-center items-center px-5"
-            style={{ backgroundImage: `url(${BG})` }}
+            style={{ backgroundImage: "url(/Moon.svg)" }}
           >
             <div
               data-aos="fade-down"

@@ -2,7 +2,7 @@
 import useAuth from "../hooks/useAuth"
 import PropTypes from 'prop-types'
 import { Link } from "react-router-dom";
-import BG from '../assets/Moon.svg'
+
 import { DNA } from "react-loader-spinner";
 
 const PrivateRoute = ({children}) => {
@@ -32,7 +32,7 @@ const PrivateRoute = ({children}) => {
     <div>
       <div
         className="w-full mt-5 min-h-screen flex justify-center items-center"
-        style={{ backgroundImage: `url(${BG})` }}
+        style={{ backgroundImage: "url(/Moon.svg)" }}
       >
         <div className="text-center">
           <h2 className="text-center text-5xl md:text-9xl text-primary font-title font-normal mb-10">
