@@ -196,7 +196,7 @@ const Register = () => {
                       <CiLock size={24} className="text-white" />
                     )}
                     <input
-                      type={"password"}
+                      type={showPassword ? "text" : "password"}
                       {...register("Password", {
                         validate: {
                           validatedPassword: (value) => {

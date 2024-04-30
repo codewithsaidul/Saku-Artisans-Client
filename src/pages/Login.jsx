@@ -23,6 +23,12 @@ const Login = () => {
     loginUser(Email, Password)
       .then((result) => {
         setUser(result.user);
+        Swal.fire({
+          title: "Success!",
+          text: "Successfully LoggedIn!",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
         naviGate("/");
       })
       .catch(() => {
