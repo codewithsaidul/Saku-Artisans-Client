@@ -1,7 +1,7 @@
 import { CiMail } from "react-icons/ci";
 import { FaGithub, FaGoogle, FaLock } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import BG from "../assets/Moon.svg";
+
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAuth from "../hooks/useAuth";
@@ -78,7 +78,7 @@ const Login = () => {
       <div>
         <div
           className="w-full min-h-screen flex justify-center items-center px-5"
-          style={{ backgroundImage: `url(${BG})` }}
+          style={{ backgroundImage: "url(/Moon.svg)" }}
         >
           <div className="shadow-custom my-10 px-5 rounded-xl w-full md:w-[50%]">
             <form
@@ -169,7 +169,7 @@ const Login = () => {
                   data-aos="fade-right"
                   data-aos-duration="1000"
                   data-aos-easing="ease-in-out"
-                    onClick={handleGoogleLogin}
+                  onClick={handleGoogleLogin}
                   className="p-3 bg-red-500 text-white rounded-full"
                 >
                   <FaGoogle size={24} />
