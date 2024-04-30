@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import bgImage from '../assets/Moon.svg'
+
 import { FaEnvelope, FaFacebook, FaGithub, FaInstagram, FaPhone, FaTwitter } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
 import { Typewriter } from 'react-simple-typewriter';
@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <div>
       <footer
-        style={{ backgroundImage: `url(${bgImage})` }}
+        style={{ backgroundImage: "url(/Moon.svg)" }}
         className="py-48 px-8 md:px-12 lg:px-20 text-gray-400 mt-20"
       >
         <div className="grid grid-cols-1 mt-20 md:grid-cols-2 lg:grid-cols-3 items-center lg:items-start gap-10">
@@ -106,7 +106,7 @@ const Footer = () => {
 
         <div>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-500 font-normal text-center mt-10 pt-10">
-            &copy; 2024 SakuArtisans by 
+            &copy; 2024 SakuArtisans by
             <span className="font-title text-primary text-xl font-semibold ml-3">
               {/* Style will be inherited from the parent element */}
               <Typewriter
